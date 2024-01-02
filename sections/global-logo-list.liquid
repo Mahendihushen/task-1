@@ -67,7 +67,7 @@
                                             {% else %}
                                                 {%- liquid 
                                                     capture current
-                                                        cycle 1, 2, 3, 4
+                                                        cycle 1, 2, 3
                                                     endcapture
                                                 -%}
                                                 {{ 'hero-apparel-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}

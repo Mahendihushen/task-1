@@ -6,8 +6,6 @@
         "3335b5f5-c0ff-4b2d-9d66-b609b264d22a": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/bag-desk2.jpg",
-            "image_mobile": "shopify:\/\/shop_images\/tote-launch.jpg",
             "slide_bg_color": "#ffffff",
             "enable_overlay": true,
             "overlay_bg_color": "#000000",
@@ -30,8 +28,6 @@
         "9e4bc005-7ba8-4659-b4f7-e8a6352e821d": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/hero-banner-02.jpg",
-            "image_mobile": "shopify:\/\/shop_images\/273266755_1755187804676858_6529202496488287137_n.jpg",
             "slide_bg_color": "#ffffff",
             "enable_overlay": false,
             "overlay_bg_color": "#000000",
@@ -54,8 +50,6 @@
         "41ccd58a-e2bc-489f-b550-2994a925992c": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/hero-banner-01.jpg",
-            "image_mobile": "shopify:\/\/shop_images\/fluid-collections-2.webp",
             "slide_bg_color": "#ffffff",
             "enable_overlay": true,
             "overlay_bg_color": "#000000",
@@ -229,49 +223,42 @@
         "f76128bd-a1a6-45c1-aeb4-48d372fddaf4": {
           "type": "content",
           "settings": {
-            "logo_img": "shopify:\/\/shop_images\/logo-4.svg",
             "logo_url": ""
           }
         },
         "804d0164-5b22-45b1-ac26-800127f6cf3a": {
           "type": "content",
           "settings": {
-            "logo_img": "shopify:\/\/shop_images\/delish.svg",
             "logo_url": ""
           }
         },
         "7b04fb88-6b2b-4786-b68d-8acdecfe76a6": {
           "type": "content",
           "settings": {
-            "logo_img": "shopify:\/\/shop_images\/logo-3.svg",
             "logo_url": ""
           }
         },
         "1e9e0c71-1ade-4082-9fa6-e26b791cfa7e": {
           "type": "content",
           "settings": {
-            "logo_img": "shopify:\/\/shop_images\/logo-2.svg",
             "logo_url": ""
           }
         },
         "4ae18fad-1c07-4940-965d-6af618221ff8": {
           "type": "content",
           "settings": {
-            "logo_img": "shopify:\/\/shop_images\/logo-6.svg",
             "logo_url": ""
           }
         },
         "33816fcc-351d-44cf-941b-ec9acf365748": {
           "type": "content",
           "settings": {
-            "logo_img": "shopify:\/\/shop_images\/logo-1.svg",
             "logo_url": ""
           }
         },
         "3e80b00c-1a55-4cef-9aa7-f3078eef316a": {
           "type": "content",
           "settings": {
-            "logo_img": "shopify:\/\/shop_images\/logo-5.svg",
             "logo_url": ""
           }
         }
@@ -297,76 +284,31 @@
         "nav_dots": true
       }
     },
-    "4235eef8-1c1c-4057-bd9e-1ba6432bcd15": {
-      "type": "global-image-banner",
+    "5f9a1746-9056-492d-ade4-4027dd50a0de": {
+      "type": "global-360-vr",
       "blocks": {
-        "5231b32b-9be9-42f3-8c64-8ff3db1bb39c": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "JUST DROPPED",
-            "subheading_color": "#121212"
-          }
-        },
-        "template--20517647974685__4235eef8-1c1c-4057-bd9e-1ba6432bcd15-heading-1": {
+        "template--21842767610164__5f9a1746-9056-492d-ade4-4027dd50a0de-heading-1": {
           "type": "heading",
           "settings": {
-            "heading": "HAND BAG",
+            "heading": "360 vr experience",
             "heading_color": "#121212"
           }
         },
-        "template--20517647974685__4235eef8-1c1c-4057-bd9e-1ba6432bcd15-text-1": {
-          "type": "text",
+        "template--21842767610164__5f9a1746-9056-492d-ade4-4027dd50a0de-leadtext-1": {
+          "type": "leadtext",
           "settings": {
-            "text": "<p>Designed in a silhouette inspired by Art-Deco style, our Business Bag packs a ton of features in a slim, compact space so you can carry your office life in the bag — including a 16” Macbook Pro.<br\/><\/p><p>Business Bag packs a ton of features in a slim, compact space so you can carry your office life in the bag.<\/p>",
-            "txt_color": "#121212"
-          }
-        },
-        "327e37e2-45d2-4a22-a3bd-26724e5bf0e5": {
-          "type": "countdown",
-          "settings": {
-            "countdown_enable": true,
-            "countdown_pretext": "Time Running Out",
-            "countdown_text": "Oct 20, 2024 23:59",
-            "countdown_bg_color": "#f5f5f5",
-            "countdown_text_color": "#111111"
-          }
-        },
-        "template--20517647974685__4235eef8-1c1c-4057-bd9e-1ba6432bcd15-buttons-1": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop Now",
-            "button_link_1": "shopify:\/\/collections\/handbag",
-            "btn_type_1": "",
-            "btn_variant_1": "primary",
-            "btn_size_1": "",
-            "button_label_2": "",
-            "button_link_2": "",
-            "btn_type_2": "",
-            "btn_variant_2": "primary",
-            "btn_size_2": ""
+            "leadtext": "Our science kits and activity sets include immersive content that teleport kids to environments around the world for a layered learning experience!",
+            "leadtext_color": "#121212"
           }
         }
       },
       "block_order": [
-        "5231b32b-9be9-42f3-8c64-8ff3db1bb39c",
-        "template--20517647974685__4235eef8-1c1c-4057-bd9e-1ba6432bcd15-heading-1",
-        "template--20517647974685__4235eef8-1c1c-4057-bd9e-1ba6432bcd15-text-1",
-        "327e37e2-45d2-4a22-a3bd-26724e5bf0e5",
-        "template--20517647974685__4235eef8-1c1c-4057-bd9e-1ba6432bcd15-buttons-1"
+        "template--21842767610164__5f9a1746-9056-492d-ade4-4027dd50a0de-heading-1",
+        "template--21842767610164__5f9a1746-9056-492d-ade4-4027dd50a0de-leadtext-1"
       ],
       "settings": {
-        "fluid_layout": false,
-        "section_top_spacing_enable": false,
-        "section_bottom_spacing_enable": false,
-        "image": "shopify:\/\/shop_images\/fluid-banner-016.jpg",
-        "enable_overlay": false,
-        "overlay_bg_color": "#000000",
-        "overlay_opacity": 0.5,
-        "height": "tallheight",
-        "desktop_text_box_position": "center",
-        "text_caption_align": "justify-content-start",
-        "text_align": "text-start",
-        "txt-bg-color": ""
+        "image": "shopify:\/\/shop_images\/vr.png",
+        "poster_video_local": "shopify:\/\/files\/videos\/3960518dba464cc28c7d93e140dcc13b.HD-1080p-7.2Mbps-16865779.mp4"
       }
     },
     "9b7f75ea-e708-446e-8cd7-0ff7a5abea63": {
@@ -375,7 +317,6 @@
         "template--20517647974685__9b7f75ea-e708-446e-8cd7-0ff7a5abea63-content-1": {
           "type": "content",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/truck_100x_3534b419-17ff-4414-99c6-5573dd0229f1.svg",
             "title": "FREE DELIVERY",
             "txt": "<p>Free shipping on all US order<br\/>or order above $100<\/p>"
           }
@@ -383,7 +324,6 @@
         "fb6b93f8-f159-4507-9c14-c2997a7672c6": {
           "type": "content",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/returns_100x_41f300e4-dff3-44c9-96a8-486b29e3da4e.svg",
             "title": "14 DAYS RETURN",
             "txt": "<p>Free returns within 14 days<\/p>"
           }
@@ -391,7 +331,6 @@
         "4bedb485-3b43-481f-ad59-42ceafcb3877": {
           "type": "content",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/secure_100x_d18a63dd-920b-4589-b54a-dedc2186f276.svg",
             "title": "100% SECURE PAYMENTS",
             "txt": "<p>Accept all payment methods<\/p>"
           }
@@ -399,7 +338,6 @@
         "fbb1fc27-ad4b-4da3-afed-6d58bafffb0a": {
           "type": "content",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/refund_100x_6d6d17b9-511c-4dd2-a49c-845593181de4.svg",
             "title": "FLEXIBLE PAYMENT",
             "txt": "<p>Help businesses get paid faster,<br\/>reduce the risk<\/p>"
           }
@@ -438,7 +376,6 @@
         "template--20517647974685__e7e1e19b-eebf-4628-a2eb-1c4eb3a2f5ee-image-1": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/fluid-all-products.jpg"
           }
         },
         "template--20517647974685__e7e1e19b-eebf-4628-a2eb-1c4eb3a2f5ee-subheading-1": {
@@ -530,13 +467,11 @@
         "756e2a33-46df-4cd1-9f5f-bfdd4158c1c4": {
           "type": "image",
           "settings": {
-            "image_desktop": "shopify:\/\/shop_images\/fluid_banner_3.jpg"
           }
         },
         "6cc5dc17-8c4a-4827-8e72-db3f7c8b90f1": {
           "type": "image",
           "settings": {
-            "image_desktop": "shopify:\/\/shop_images\/fluid-sprinkles-desk1.jpg"
           }
         }
       },
@@ -697,7 +632,7 @@
     "169d8c71-e82b-44aa-8e84-4d16627dee53",
     "d5c13a52-40a7-4578-8bf6-4c71c101dd94",
     "c4e43525-58f3-43f9-8d02-e6f56882ecba",
-    "4235eef8-1c1c-4057-bd9e-1ba6432bcd15",
+    "5f9a1746-9056-492d-ade4-4027dd50a0de",
     "9b7f75ea-e708-446e-8cd7-0ff7a5abea63",
     "e7e1e19b-eebf-4628-a2eb-1c4eb3a2f5ee",
     "741eb9d7-e7e6-459e-9fe3-7e9137abe003",

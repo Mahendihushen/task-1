@@ -1,0 +1,136 @@
+
+<section class="vr-wrapper position-relative overflow-hidden">
+    <div id="Banner-{{ section.id }}" class="banner-section position-relative {{ section.settings.height }}">
+        <div class="banner__content container h-auto">
+            <div class="col-lg-7 col-md-7 px-0 text-center">
+                {%- for block in section.blocks -%}
+                {%- case block.type -%}
+                    {%- when 'heading' -%}
+                    <h2 class="h1 mb-3 text-uppercase" {{ block.shopify_attributes }} data-block-id="{{ block.id }}" style="color: {{ block.settings.heading_color }};">{{ block.settings.heading }}</h2> 
+                    {%- when 'leadtext' -%}
+                    <p class="fs-lg mb-3" {{ block.shopify_attributes }} data-block-id="{{ block.id }}" style="color: {{ block.settings.leadtext_color }};">{{ block.settings.leadtext }}</p> 
+                    {% endcase %}
+                {%- endfor -%}
+            </div>
+        </div>
+        {% liquid 
+            assign posterImage = section.settings.poster_video_local | image_url: width: 600
+            assign videoObj = section.settings.poster_video_local.sources | where: "format", "mp4"
+            assign videoURL = videoObj[0].url
+        %}
+        <video class="w-100 h-100" data-posterVideo preload="true" muted="true" playsinline loop autoplay="true"  poster="{{ posterImage }}" src="{{ videoURL }}"></video>
+        <div class="vrimg-wrapper">
+            <img src="{{ section.settings.image | image_url: width: 4000 }}" alt="360 VR" class="img-fluid" width="{{ section.settings.image.width | divided_by: 2 }}" height="{{ section.settings.image.height | divided_by: 2 }}" loading="lazy">
+        </div>
+    </div>
+</section>
+{%- style -%}
+   
+  .vr-wrapper{
+    height:100vh;
+
+    .banner__content{
+        top: 10px;
+    }
+    .pin-spacer{
+        overflow-x: clip !important;
+        overflow: hidden !important;
+    }
+  }
+  .vrimg-wrapper{
+    width:130%;
+    height:100%;
+    img, svg{
+        display: block;
+        width: 100%;
+        height: auto;
+        min-height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+    }
+  }
+{%- endstyle -%}
+{% schema %}
+{
+  "name": "360 VR",
+  "class": "overflow-hidden",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "VR Image"
+    },
+    {
+        "type": "video",
+        "id": "poster_video_local",
+        "label": "Poster Video(Local)",
+        "info": "[Learn more about Autoplay policies.](https://developer.chrome.com/blog/autoplay/#new-behaviors)"
+    }
+ 
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Image banner",
+          "label": "Heading"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Heading Color",
+          "default": "#121212"
+        }
+      ]
+    },
+    {
+      "type": "leadtext",
+      "name": "Lead text",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "leadtext",
+          "default": "Image banner",
+          "label": "Sub Heading"
+        },
+        {
+          "type": "color",
+          "id": "leadtext_color",
+          "label": "Sub Heading Color",
+          "default": "#121212"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "360 Vr",
+      "category": "Banners",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "leadtext"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

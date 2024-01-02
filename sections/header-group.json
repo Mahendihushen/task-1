@@ -19,10 +19,13 @@
         "5f1e41a7-b8fe-460b-a63e-25715cc8ff62": {
           "type": "megamenu",
           "settings": {
-            "title": "Sections",
-            "image": "shopify:\/\/shop_images\/fluid-collections-2.webp",
-            "link_text": "New Collections",
-            "link_url": "shopify:\/\/collections"
+            "title": "Drones",
+            "image1": "shopify:\/\/shop_images\/urban-fashion_925x_4dce2800-3b6d-48ef-937b-c4b399da07c5.jpg",
+            "link_text1": "Jacket",
+            "link_url1": "shopify:\/\/products\/classic-leather-jacket",
+            "image2": "shopify:\/\/shop_images\/putting-on-your-shoes_925x_57ed9a4d-b9cd-4958-87f7-e7a881eb57d8.jpg",
+            "link_text2": "Shoes",
+            "link_url2": "shopify:\/\/products\/silk-summer-top"
           }
         }
       },
@@ -31,21 +34,19 @@
       ],
       "settings": {
         "fluid_header": false,
-        "sticky_header_type": "on-scroll-up",
+        "sticky_header_type": "none",
         "header_bg_color": "#ffffff",
         "show_line_separator": false,
-        "logo": "shopify:\/\/shop_images\/fluid-logo-v-0.2.svg",
         "logo_width": 150,
-        "menu": "fluid-nav"
+        "menu": "main-menu"
       }
     },
     "mobile-nav-drawer": {
       "type": "mobile-nav-drawer",
       "settings": {
-        "logo": "shopify:\/\/shop_images\/fluid-logo-v-0.2.svg",
         "logo_width": 100,
         "main_menu_linklist": "main-menu",
-        "secondary_menu_linklist": "company",
+        "secondary_menu_linklist": "",
         "mobilemenu_style": "slide-submenu",
         "mobile_nav_show_social_links": true,
         "social_icon_facebook": true,
