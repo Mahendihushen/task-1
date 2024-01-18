@@ -74,7 +74,76 @@
 </div>
 
 {% if section.settings.enable_filtering %}
-    <div class="col-lg-3 d-lg-block d-none" id="collectionFilters">
+    <div class="col-lg-3 d-none" id="collectionFilters">
         {%- render 'product-filter-blocks' -%}
+    </div>
+
+    <div class="col-lg-3 d-lg-block d-none" id="collectionFilters">
+        {% for filter in collection.filters %}
+        <div>
+            <h5>{{ filter.label }}</h5>
+            type =={{ filter.type }}
+            {% if filter.type == 'list' %}
+            <div class="pb-5">
+                <fieldset>
+                {% for filter_value in filter.values %}
+                    <div>
+                    <input
+                        type="checkbox"
+                        id="{{ filter.label }}-{{ filter_value.value }}"
+                        name="{{ filter_value.param_name }}"
+                        value="{{ filter_value.value }}"
+                        {% if filter_value.active %}
+                        checked
+                        {% endif %}
+                    >
+                    <a
+                        class="d-inline-flex align-items-center {% if filter_value.active %}bg-gray-200{% endif %}"
+                        href="{% if filter_value.active %}{{ filter_value.url_to_remove }}{% else %}{{ filter_value.url_to_add }}{% endif %}"
+                    >
+                        {{ filter_value.label | escape }}
+                        {% if filter_value.active %}<span class="icon-close ms-2 icon-size-10"></span>{% endif %}
+                    </a>
+                    </div>
+                {% endfor %}
+                </fieldset>
+            </div>
+            {% else %}
+            <div class="pb-5">
+                <fieldset class="d-flex">
+                <div>
+                    <input
+                    name="{{ filter.min_value.param_name }}"
+                    id="Filter-{{ filter.min_value.param_name }}"
+                    {% if filter.min_value.value -%}
+                        value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+                    {%- endif %}
+                    type="number"
+                    placeholder="0"
+                    min="0"
+                    max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                    >
+                    {% comment %} <label for="Filter-{{ filter.min_value.param_name }}">{{ filter.label }}</label> {% endcomment %}
+                </div>
+                <span class="d-inline-flex mx-3">To</span>
+                <div>
+                    <input
+                    name="{{ filter.max_value.param_name }}"
+                    id="Filter-{{ filter.max_value.param_name }}"
+                    {% if filter.max_value.value -%}
+                        value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
+                    {%- endif %}
+                    type="number"
+                    placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                    min="0"
+                    max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                    >
+                    {% comment %} <label for="Filter-{{ filter.max_value.param_name }}">{{ filter.label }}</label> {% endcomment %}
+                </div>
+                </fieldset>
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
     </div>
 {% endif %}

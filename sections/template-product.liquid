@@ -1,3 +1,21 @@
+{%- liquid
+  assign lerningMetafiled = product.metafields.custom.learning_date.value
+  assign dateTime =  product.metafields.custom.ler_date_time
+  assign dimensions = product.metafields.learning.dimension.value
+  assign learningMoney = product.metafields.learning.money.value
+  assign learnCollections = product.metafields.learning.collection_list.value
+  assign lerColor = product.metafields.lerning.color
+  assign lerBool = product.metafields.lerning.boolean
+  assign lerFile = product.metafields.learning.file
+  assign lerRating = product.metafields.learning.rating.value
+  assign lerProduct = product.metafields.learning.related_product.value
+  assign lerWeights =  product.metafields.lerning.weight.value
+  assign lerVolumes =  product.metafields.lerning.volume.value
+  assign lerUrl =  product.metafields.lerning.url.value
+  assign lerJsons =  product.metafields.lerning.json.value
+-%}
+
+
 <div data-section-id="{{ section.id }}" data-template="product" class="{% if product.has_only_default_variant %}only-default-variant{% endif %}">
   {%- liquid 
     assign template_type = section.settings.template_type
@@ -361,6 +379,159 @@
   </modal-dialog>
 {%- endfor -%}
 
+
+<div class="section-content">
+  <div class="container">
+    <h2 class="text-center mb-4">Metafiled</h2>
+    <table class="w-100 border metafiled-table">
+      <thead class="text-start">
+        <tr>
+          <th>Metafieled</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody class="border">
+        <tr>
+          <td>Date</td>
+          <td>{{ lerningMetafiled }}</td>
+        </tr>
+        <tr>
+          <td>URL</td>
+          <td><a href="{{ lerUrl }}">{{ lerUrl }}</a></td>
+        </tr>
+        <tr>
+          <td>Date Time with Time Formate</td>
+          <td>{{ dateTime }} <br/> {{ dateTime | date: "%a, %b %d, %y" }}</td>
+        </tr>
+        <tr>
+          <td>Money</td>
+          <td>{{ learningMoney | money }}</td>
+        </tr>
+        <tr>
+          <td>Boolean</td>
+          <td>{{ lerBool }}</td>
+        </tr>
+        <tr>
+          <td>Color</td>
+          <td>{{ lerColor }}</td>
+        </tr>
+        <tr>
+          <td>File</td>
+          <td>
+            <img src="{{ lerFile | image_url: width: 200 }}" alt="" width="200" height="200" loading="lazy"><br/>
+            <span class="me-3">{{ lerFile }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td>dimension With List</td>
+          <td>
+            <ul class="list-unstyled m-0">
+              {% for dimension in dimensions %}
+                <li>
+                  {{ dimension }}
+                </li>
+              {% endfor %}
+            </ul>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>Rating With List</td>
+          <td>
+            <ul class="list-unstyled m-0">
+              {% for item in lerRating %}
+                <li>{{ item }} out of {{ item.scale_max }} </li>
+              {% endfor %}
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>Weight With List</td>
+          <td>
+            <ul class="list-unstyled m-0">
+              {% for weight in lerWeights %}
+                <li>
+                  {{ weight }}
+                </li>
+              {% endfor %}
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>Volume With List</td>
+          <td>
+            <ul class="list-unstyled m-0">
+              {% for volume in lerVolumes %}
+                <li>
+                  {{ volume }}
+                </li>
+              {% endfor %}
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>Collection With List</td>
+          <td>
+            <ul class="list-unstyled m-0 d-flex">
+              {% for collectionList in learnCollections %}
+                <li class="me-3">
+                  <div>
+                  <img src="{{ collectionList.featured_image | image_url: width: 200 }}" loading="lazy" width="200" height="200" alt="">
+                  </div>
+                  <span>{{ collectionList.title }} </span><br/>
+                  <a href="{{ collectionList.url }}" class="btn btn-primary btn-sm">Learn More</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>Related Product With List</td>
+          <td>
+            <ul class="list-unstyled m-0 d-flex">
+              {% for item in lerProduct %}
+                <li class="me-3">
+                  <div>
+                  <img src="{{ item.featured_image | image_url: width: 200 }}" loading="lazy" width="200" height="200" alt="">
+                  </div>
+                  <span>{{ item.title }} </span><br/>
+                  <span>{{ item.price | money }}</span><br/>
+                  <a href="{{ item.url }}" class="btn btn-primary btn-sm">Learn More</a>
+                </li>
+               {% endfor %}
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>Json With List</td>
+          <td>
+            {{  lerJsons }}
+            <ul class="list-unstyled m-0">          
+              {% for jsonitem in lerJsons %}
+                 <li class="mt-2">
+                  <strong>Name:</strong>{{ jsonitem[1].name }} <br/><strong>City:</strong> {{ jsonitem[1].city }}<br/>
+                 </li>
+              {% endfor %}
+  
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+
+ 
+  </div>
+</div>
+<style>
+  .metafiled-table th,
+  .metafiled-table td{
+    padding: 16px;
+    border-bottom: 1px solid var(--bs-border-color);
+  }
+</style>
 <script type="application/json" data-productMedia>
   {{ product.media | json }}
 </script>
