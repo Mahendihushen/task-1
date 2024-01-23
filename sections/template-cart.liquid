@@ -1,7 +1,7 @@
 <section id="cart--items" data-id="{{ section.id }}">
   <div class="section-content">
     <div class="{% if section.settings.fluid_layout %}container-fluid{% else %}container{% endif %}">
-        <cart-form class="cart-page d-flex flex-column" id="ajax-cart" style="visibility: hidden;" updating="false">
+        <cart-form class="cart-page d-flex flex-column" id="ajax-cart" updating="false">
 
             <div class="d-flex justify-content-center align-items-center section-header mb-md-7 mb-5">
                 {% assign cart_heading = 'templates.cart.title' | t %}

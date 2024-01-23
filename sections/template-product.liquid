@@ -15,6 +15,12 @@
   assign lerJsons =  product.metafields.lerning.json.value
 -%}
 
+<div class="">
+
+{% assign date = 'now' | date: "%a, %b %d, %y" %}
+{% comment %} 
+<strong>{{ "now" | date: "%d %b" | plus: 8 | times: 24 | times: 60 | times: 60 | date: "%d %b" }}</strong> {% endcomment %}
+
 
 <div data-section-id="{{ section.id }}" data-template="product" class="{% if product.has_only_default_variant %}only-default-variant{% endif %}">
   {%- liquid 
@@ -344,14 +350,55 @@
                             </div>
                           </div>
                     {%- endcase -%}
+                    
                   {%- endfor -%}
+                 
                 </div>
+               
 
+                
+               
+                  <div class="mt-5 mb-0">    
+                    <label for="">
+                      Order Timeline
+                    </label>
+                    <ul class="list-unstyled m-0 d-flex mt-5">
+                      <li class="d-flex flex-column text-center me-5">
+                        <strong>{{ "now" | date: "%b %d" }}</strong>
+                          <span>Order Placed</span>
+                      </li>
+                      <li class="d-flex flex-column text-center me-5">
+                        {% for tag in product.tags %}
+                          {%- if tag contains 'dispatch_' -%}
+                            {% assign tag_dis = tag | remove: 'dispatch_' | split: "-" %}
+                            {% comment %} {{ tag_dis[0] }} {{ tag_dis[1] }} {% endcomment %}
+                            <strong>  {{ "now" | date: "%d %b" | plus: tag_dis[0] | times: 24 | times: 60 | times: 60 | date: "%d" }}-
+                            {{ "now" | date: "%d %b" | plus: tag_dis[1] | times: 24 | times: 60 | times: 60 | date: "%d %b" }}</strong>
+                          {%- endif -%}
+                        {% endfor %}        
+                          <span>Order Dispatches Date</span>
+                      </li>
+                      <li class="d-flex flex-column text-center">
+                        {% for tag in product.tags %}
+                          {%- if tag contains 'deliver_' -%}
+                            {% assign tag_del = tag | remove: 'deliver_' | split: "-" %}
+                            {% comment %} {{ tag_del[0] }} {{ tag_del[1] }} {% endcomment %}
+                            <strong>  {{ "now" | date: "%d %b" | plus: tag_del[0] | plus: tag_dis[0] | times: 24 | times: 60 | times: 60 | date: "%d" }}-
+                              {{ "now" | date: "%d %b" | plus: tag_del[1] | plus: tag_dis[1] | times: 24 | times: 60 | times: 60 | date: "%d %b" }}</strong>  
+                          {%- endif -%}
+                        {% endfor %}   
+                          <span>Order Delivered Date</span>
+                        
+                      </li>
+                    </ul>
+                  <div>
+        
             </div>
         </div>
     </div>
   </section>
 </div>
+
 
 {% assign popups = section.blocks | where: 'type', 'popup-links' %}
 {%- for block in popups -%}
@@ -525,6 +572,8 @@
  
   </div>
 </div>
+
+
 <style>
   .metafiled-table th,
   .metafiled-table td{
