@@ -77,7 +77,8 @@
 
 <div class="section-content text-center">
     <div class="container">
-        <h1>Upsell</h1>        
+        <h1>{{ 'templates.cart.upsell' | t }}</h1>        
+
         <div class="row mt-4">
             {% for item in cart.items %}   
                 {%- if item.product.metafields.learning.related_product -%}
@@ -87,7 +88,7 @@
                             {% comment %} <h5>{{ upsellList.title }}</h5> {% endcomment %}
                         {% else %}
                         <div class="col-3">
-                            <a href="http://">
+                            <a href="{{ upsellList.url }}">
                                 <img src="{{ upsellList.featured_image | image_url: width: 250 }}" alt="{{ upsellList.title }}" width="" height="" loading="lazy">
                                 <h5>{{ upsellList.title }}</h5>
                                 <p>{{ upsellList.price | money }}</p>

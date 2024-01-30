@@ -206,7 +206,9 @@
       "free": "Free",
       "shipping_at_checkout": "Shipping, taxes, & discounts calculated during checkout.",
       "note": "Note",
-      "note_placeholder": "Add cart note"
+      "note_placeholder": "Add cart note",
+      "addone" : "{{ title }} Addone",
+      "upsell" : "Upsell Product"
     },
     "contact": {
       "form": {
