@@ -1,7 +1,15 @@
 {% assign upsellCollection = collections[section.settings.upsell_collection] %}
 {% assign total_items = section.settings.products_to_show | plus: 0 %}
 
-<div class="{% if section.settings.section_top_spacing_enable %}section-spacing-top{% endif %} {% if section.settings.section_bottom_spacing_enable %}section-spacing-bottom{% endif %}"  data-section-id="{{ section.id }}" style="background:{{ section.settings.section_bg_color }}; color:{{ section.settings.section_txt_color }};">
+{% assign cart_product_ids = cart.items | map: 'product_id' %}
+
+{%- assign cartItemName = cart.items | map: 'title' | split: '-' -%}
+
+==={{ cartItemName }}
+
+{% comment %} {{ cart_product_ids }} {% endcomment %}
+
+<div class="d-none {% if section.settings.section_top_spacing_enable %}section-spacing-top{% endif %} {% if section.settings.section_bottom_spacing_enable %}section-spacing-bottom{% endif %}"  data-section-id="{{ section.id }}" style="background:{{ section.settings.section_bg_color }}; color:{{ section.settings.section_txt_color }};">
     <div class="{% if section.settings.fluid_layout %}container-fluid{% else %}container{% endif %}">
         <div class="row">
             <div class="col-12 col-lg-6 col-md-8 text-center mb-md-5 mb-4 mx-auto">
@@ -66,6 +74,32 @@
     </div>
 </div>
 
+
+<div class="section-content text-center">
+    <div class="container">
+        <h1>Upsell</h1>        
+        <div class="row mt-4">
+            {% for item in cart.items %}   
+                {%- if item.product.metafields.learning.related_product -%}
+                    {%- assign lists = item.product.metafields.learning.related_product.value -%}
+                    {% for upsellList in lists %}
+                        {%- if cart_product_ids contains upsellList.id -%}
+                            {% comment %} <h5>{{ upsellList.title }}</h5> {% endcomment %}
+                        {% else %}
+                        <div class="col-3">
+                            <a href="http://">
+                                <img src="{{ upsellList.featured_image | image_url: width: 250 }}" alt="{{ upsellList.title }}" width="" height="" loading="lazy">
+                                <h5>{{ upsellList.title }}</h5>
+                                <p>{{ upsellList.price | money }}</p>
+                            </a>
+                        </div>
+                    {%- endif -%}
+                    {% endfor %} 
+                {%- endif -%}
+            {%- endfor -%}
+        </div>
+    </div>
+</div>
 {% schema %}
 {
   "name": "Upsell Products",

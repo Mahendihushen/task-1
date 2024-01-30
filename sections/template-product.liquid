@@ -33,6 +33,31 @@
       cycle 1, 2
     endcapture
   -%}
+
+  <div class="container">
+    {%liquid  for tag in product.tags 
+         if tag contains 'dispatch-' 
+          assign date_tag = tag
+        
+        endif
+     endfor 
+     assign today =  "now" | date: "%b %d" 
+     assign dispatch_timestamp = date_tag | split: '_' | first | remove: 'dispatch-' | times: 24 | times: 60 | times: 60
+     assign deliver_timestamp = date_tag | split: '_' | last | remove: 'delivery-' | times: 24 | times: 60 | times: 60
+
+     assign dispatchDate = 'now' | date: "%s" | plus: dispatch_timestamp | date: '%d %b'
+     assign deliverDate = dispatchDate | date: " %s " | plus: deliver_timestamp | date: '%d %b'
+   %}
+
+   {% for  tag in product.tags %}
+      {%- if tag contains 'dispatch-' -%}
+        <span>{{ today }}</span> == {{ dispatchDate }} == {{ deliverDate }}
+      {%- endif -%}
+   {% endfor %}
+    </div>
+
+
+
   <section class="section-content pt-6" data-product-container>
     <div class="{% if section.settings.fluid_layout %}container-fluid{% else %}container{% endif %}">
         <div class="mb-3">
@@ -165,8 +190,8 @@
 
             <div class="col-lg-5" id="ProductInfo-{{ section.id }}">
                 <div class="product-details-wrapper mt-5 mt-lg-0">
-                  <h1>{{ product.title }}</h1>
-
+                  <h1>{{ product.title }}fgdfg</h1>
+                    {{ product.id }}
                   {%- for block in section.blocks -%}
                     {%- case block.type -%}
                       {%- when '@app' -%}
@@ -357,42 +382,29 @@
                
 
                 
-               
+                {% for  tag in product.tags %}
+                  {%- if tag contains 'dispatch-' -%}
                   <div class="mt-5 mb-0">    
                     <label for="">
                       Order Timeline
                     </label>
                     <ul class="list-unstyled m-0 d-flex mt-5">
                       <li class="d-flex flex-column text-center me-5">
-                        <strong>{{ "now" | date: "%b %d" }}</strong>
+                        <strong>{{ today }}</strong>
                           <span>Order Placed</span>
                       </li>
                       <li class="d-flex flex-column text-center me-5">
-                        {% for tag in product.tags %}
-                          {%- if tag contains 'dispatch_' -%}
-                            {% assign tag_dis = tag | remove: 'dispatch_' | split: "-" %}
-                            {% comment %} {{ tag_dis[0] }} {{ tag_dis[1] }} {% endcomment %}
-                            <strong>  {{ "now" | date: "%d %b" | plus: tag_dis[0] | times: 24 | times: 60 | times: 60 | date: "%d" }}-
-                            {{ "now" | date: "%d %b" | plus: tag_dis[1] | times: 24 | times: 60 | times: 60 | date: "%d %b" }}</strong>
-                          {%- endif -%}
-                        {% endfor %}        
+                            <strong> {{ dispatchDate }} </strong>
                           <span>Order Dispatches Date</span>
                       </li>
                       <li class="d-flex flex-column text-center">
-                        {% for tag in product.tags %}
-                          {%- if tag contains 'deliver_' -%}
-                            {% assign tag_del = tag | remove: 'deliver_' | split: "-" %}
-                            {% comment %} {{ tag_del[0] }} {{ tag_del[1] }} {% endcomment %}
-                            <strong>  {{ "now" | date: "%d %b" | plus: tag_del[0] | plus: tag_dis[0] | times: 24 | times: 60 | times: 60 | date: "%d" }}-
-                              {{ "now" | date: "%d %b" | plus: tag_del[1] | plus: tag_dis[1] | times: 24 | times: 60 | times: 60 | date: "%d %b" }}</strong>  
-                          {%- endif -%}
-                        {% endfor %}   
+                         <strong> {{ deliverDate }}</strong>
                           <span>Order Delivered Date</span>
-                        
                       </li>
                     </ul>
                   <div>
-        
+                  {%- endif -%}
+                {% endfor %}
             </div>
         </div>
     </div>
